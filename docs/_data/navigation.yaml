@@ -35,6 +35,3 @@ pages:
     link: /pages/billing-and-operations/billing
   - name: Operations and Observability
     link: /pages/billing-and-operations/operations 
-- name: This Doc Site
-  link: /pages/doc-site
-  mainnav: True
