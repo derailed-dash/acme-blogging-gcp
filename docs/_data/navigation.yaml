@@ -1,0 +1,40 @@
+# If a link should appear on the main nav, set mainnav: True
+docs_title: Navigation
+pages:
+- name: Home
+  link: /
+  mainnav: True
+- name: Requirements
+  link: /pages/reqs
+  mainnav: True
+- name: Options and Design
+  link: /pages/options-and-design/
+  mainnav: True
+  members:
+  - name: Solution Options and Design Decisions
+    link: /pages/options-and-design/options  
+  - name: High-Level Design
+    link: /pages/options-and-design/hld
+  - name: Business Case
+    link: /pages/options-and-design/business-case
+- name: Build and Automation
+  link: /pages/build-and-automation/
+  mainnav: True
+  members:
+  - name: Foundation Build
+    link: /pages/build-and-automation/foundation-build
+  - name: Project Factory
+    link: /pages/build-and-automation/project-factory
+  - name: CI/CD Pipeline
+    link: /pages/build-and-automation/cicd
+- name: Billing and Operations
+  link: /pages/billing-and-operations/
+  mainnav: True
+  members:
+  - name: Billing and Dashboards
+    link: /pages/billing-and-operations/billing
+  - name: Operations and Observability
+    link: /pages/billing-and-operations/operations 
+- name: This Doc Site
+  link: /pages/doc-site
+  mainnav: True

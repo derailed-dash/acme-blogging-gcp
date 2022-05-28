@@ -1,0 +1,10 @@
+<nav>
+    <ol class="breadcrumb">
+        {% assign navitems = site.data.navigation.pages | where: 'mainnav', true %}
+        {% for item in navitems %}
+        <li class="breadcrumb-item{% if page.url == item.link %} active{% endif %}">
+            <a href="{{ item.link | relative_url }}">{{ item.name }}</a>
+        </li>
+        {% endfor %}
+    </ol>
+</nav>

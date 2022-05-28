@@ -1,0 +1,46 @@
+# Ghost-App Service Cloud Build
+# - Builds a new container img from local source
+# - Pushes the image to GCR
+# - Deploys the image to Cloud Run under a different project
+#
+# Pre-Reqs
+# - App build (e.g. Dockerfile) already in source repo
+
+steps:
+# Get latest Dockerfile and build new image from it.
+# (Runs in the cloud build docker context.)
+# If we run this from a trigger, the trigger makes the files available as if they were local.
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', 
+         '-t', '${_GCR_HOST}/${_SHARED_PROJECT}/${_CONTAINERNAME}:${_VERSION}', '.']
+
+# Push the image to the GCR in the CB shared project
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push','${_GCR_HOST}/${_SHARED_PROJECT}/${_CONTAINERNAME}:${_VERSION}']
+
+# Deploy the image as a Cloud Run service in the target project
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'ghost-service',
+         '--project', '${_TARGET_PROJECT}',
+         '--image', '${_GCR_HOST}/${_SHARED_PROJECT}/${_CONTAINERNAME}:${_VERSION}',
+         '--execution-environment=gen2',
+         '--cpu=1', '--memory=512Mi', 
+         '--min-instances=1', '--max-instances=4', 
+         '--port=${_PORT}',
+         '--allow-unauthenticated', 
+         '--platform', 'managed',
+         '--region', '${_REGION}']
+
+# Link the Cloud Build to the image
+images:
+- '${_GCR_HOST}/${_SHARED_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
+
+# Need to extract into config
+substitutions:
+  _GCR_HOST: eu.gcr.io
+  _CB_PROJECT: cb-cloudbuild-6a53
+  _TARGET_PROJECT: prj-ghost-dev-1-2eb70c61
+  _CONTAINERNAME: dazbo-ghost
+  _VERSION: '0.1'
+  _PORT: '2368'
+  _REGION: europe-west2
