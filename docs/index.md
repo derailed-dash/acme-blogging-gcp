@@ -53,3 +53,11 @@ To proceed, please follow the navigation links above.
 My name is Darren Lester. I am an experienced enterprise architect with a focus on technology, cloud, and hosting infrastructure.
 
 The content presented here is my own work.  It is the accompanying documentation (e.g. solution options, solution design, deployment instructions, etc) for a case study I have implemented using Google Cloud.
+
+Check out some of my other content:
+
+- [My GitHub Homepage](https://github.com/derailed-dash){:target="_blank"}
+- [My Blog](https://content.just2good.co.uk/){:target="_blank"}
+- [My Content on Medium](https://medium.com/@derailed.dash){:target="_blank"}
+
+
