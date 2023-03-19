@@ -22,7 +22,7 @@ To proceed, please follow the navigation links above.
 
 - [This documentation site](https://acme-blogging-docs.just2good.co.uk/)
 - [Repo on GitHub](https://github.com/derailed-dash/acme-blogging-gcp){:target="_blank"}
-- The Demo Application, on GCP: (now decommissioned, as there's a cost to running it!)
+- The Demo Application, on GCP (now decommissioned, as there's a cost to running it!)
   - [Billing Dashboard](https://datastudio.google.com/u/0/reporting/a0f62bfa-ba65-46d8-aa15-e121c834150e){:target="_blank"}
   - [Dev-1 Environment Ghost Application](https://dev-1.acme-blogging.just2good.co.uk/){:target="_blank"}
   - [Cloud Function Posts-Get (access requires an account within the demo organisation)](https://europe-west2-prj-ghost-dev-1-2eb70c61.cloudfunctions.net/ghost-func-posts-get){:target="_blank"}
